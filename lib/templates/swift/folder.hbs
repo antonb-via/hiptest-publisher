@@ -1,4 +1,4 @@
-import XCTest;
+import XCTest
 {{#if needs_to_import_actionwords? }}import Actionwords;
 {{/if}}
 class {{{ clear_extension context.filename }}}: XCTestCase {{#curly}}
@@ -6,8 +6,6 @@ class {{{ clear_extension context.filename }}}: XCTestCase {{#curly}}
 {{/comment}}{{/if}}
 let Actionwords {{{ context.call_prefix }}}:Actionwords = Actionwords();
 {{#unless is_empty?}}override func setUp(){{#curly}}{{#indent}}
-let app = XCUIApplication()
-app.launch()
 {{> body}}
 {{/curly}}
 

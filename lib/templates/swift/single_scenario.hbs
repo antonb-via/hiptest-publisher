@@ -1,9 +1,9 @@
-import XCTest;
+import XCTest
 {{#if needs_to_import_actionwords? }}import Actionwords
 {{/if}}
 class {{{ clear_extension context.filename }}}:XCTestCase {{#curly}}
 {{#indent}}
-let {{{ context.call_prefix }}}:Actionwords = new Actionwords();
+let {{{ context.call_prefix }}}:Actionwords = new Actionwords()
 
 {{> scenario}}
 {{/indent}}
