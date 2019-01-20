@@ -2,7 +2,13 @@ import XCTest
 
 class {{{ clear_extension context.filename }}}:XCTestCase {{#curly}}
 {{#indent}}
-let {{{ context.call_prefix }}}:Actionwords = Actionwords()
+var {{{ context.call_prefix }}}:Actionwords = Actionwords()
+
+override func setUp(){{#curly}}{{#indent}}
+{{{ context.call_prefix }}} = Actionwords()
+{{/indent}}
+{{/curly}}
+
 {{#each rendered_children.scenarios}}{{{this}}}
 {{/each}}
 {{/indent}}
