@@ -1,0 +1,15 @@
+import XCTest
+{{#if needs_to_import_actionwords? }}import Actionwords;
+{{/if}}
+class {{{ clear_extension context.filename }}}: XCTestCase {{#curly}}
+{{#indent}}{{#if has_tags?}}{{#comment '//'}}Tags: {{join rendered_children.tags ' '}}
+{{/comment}}{{/if}}
+let Actionwords {{{ context.call_prefix }}}:Actionwords = Actionwords();
+{{#unless is_empty?}}override func setUp(){{#curly}}{{#indent}}
+{{> body}}
+{{/curly}}
+
+{{/unless}}{{#each rendered_children.scenarios}}{{{this}}}
+{{/each}}
+{{/indent}}
+{{/curly}}

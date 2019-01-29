@@ -1,0 +1,22 @@
+import XCTest
+
+class {{{ clear_extension context.filename }}}:XCTestCase {{#curly}}
+{{#indent}}
+var {{{ context.call_prefix }}}:Actionwords = Actionwords()
+let app = XCUIApplication()
+
+override func setUp(){{#curly}}{{#indent}}
+{{{ context.call_prefix }}} = Actionwords()
+app.launch()
+{{/indent}}
+{{/curly}}
+
+override func tearDown(){{#curly}}{{#indent}}
+app.terminate()
+{{/indent}}
+{{/curly}}
+
+{{#each rendered_children.scenarios}}{{{this}}}
+{{/each}}
+{{/indent}}
+{{/curly}}
