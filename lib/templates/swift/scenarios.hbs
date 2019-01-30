@@ -2,25 +2,11 @@ import XCTest
 
 class {{{ clear_extension context.filename }}}:BaseTest {{#curly}}
 {{#indent}}
-let xcUiTestApp:XCUIApplication
-var {{{ context.call_prefix }}}:Actionwords
-
-override init(){{#curly}}{{#indent}}
-xcUiTestApp = XCUIApplication()
-actionwords = Actionwords(app: xcUiTestApp)
-super.init()
-{{/indent}}
-{{/curly}}
-
+var {{{ context.call_prefix }}}:Actionwords = Actionwords()
 
 override func setUp(){{#curly}}{{#indent}}
-xcUiTestApp.launch()
-actionwords = Actionwords(app: xcUiTestApp)
-{{/indent}}
-{{/curly}}
-
-override func tearDown(){{#curly}}{{#indent}}
-xcUiTestApp.terminate()
+actionwords = Actionwords()
+super.setUp()
 {{/indent}}
 {{/curly}}
 
