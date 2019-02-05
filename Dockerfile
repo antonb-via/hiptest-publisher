@@ -2,6 +2,7 @@ FROM ruby:2.5.3
 
 RUN mkdir -p /usr/src/app
 RUN mkdir -p /output
+VOLUME /output
 WORKDIR /usr/src/app
 
 COPY . /usr/src/app
